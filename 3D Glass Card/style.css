@@ -1,0 +1,96 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(120deg, #0f2027, #203a43, #2c5364);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1200px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.card {
+    width: 270px;
+    height: 320px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, #ff6ec4, #7873f5, #4ade80, #ff6ec4);
+    animation: rotateGlow 8s linear infinite;
+    z-index: 0;
+    opacity: 0.2;
+}
+
+@keyframes rotateGlow {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.card-content {
+    z-index: 1;
+    text-align: center;
+    padding: 30px 20px;
+    color: #fff;
+}
+
+.card-content img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.card-content h2 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #ddd;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.card-content button {
+    padding: 10px 20px;
+    background: #4ade80;
+    border: none;
+    border-radius: 25px;
+    color: #222;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.card-content button:hover {
+    background: #22c55e;
+}
