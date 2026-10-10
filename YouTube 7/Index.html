@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liquid Glass Dock | @HelpmeCoder</title>
+    <link rel="stylesheet" href="Style.css" />
+  </head>
+  <body>
+    <div class="main-container">
+      <!-- SVG Filters -->
+      <svg style="display: none">
+        <filter
+          id="glass-distortion"
+          x="0%"
+          y="0%"
+          width="100%"
+          height="100%"
+          filterUnits="objectBoundingBox"
+        >
+          <feTurbulence
+            type="fractalNoise"
+            baseFrequency="0.001 0.005"
+            numOctaves="1"
+            seed="17"
+            result="turbulence"
+          />
+          <feComponentTransfer in="turbulence" result="mapped">
+            <feFuncR type="gamma" amplitude="1" exponent="10" offset="0.5" />
+            <feFuncG type="gamma" amplitude="0" exponent="1" offset="0" />
+            <feFuncB type="gamma" amplitude="0" exponent="1" offset="0.5" />
+          </feComponentTransfer>
+          <feGaussianBlur in="turbulence" stdDeviation="3" result="softMap" />
+          <feSpecularLighting
+            in="softMap"
+            surfaceScale="5"
+            specularConstant="1"
+            specularExponent="100"
+            lightingColor="white"
+            result="specLight"
+          >
+            <fePointLight x="-200" y="-200" z="300" />
+          </feSpecularLighting>
+          <feComposite
+            in="specLight"
+            operator="arithmetic"
+            k1="0"
+            k2="1"
+            k3="1"
+            k4="0"
+            result="litImage"
+          />
+          <feDisplacementMap
+            in="SourceGraphic"
+            in2="softMap"
+            scale="200"
+            xChannelSelector="R"
+            yChannelSelector="G"
+          />
+        </filter>
+      </svg>
+
+      <div class="content-wrapper">
+        <!-- Glass Dock -->
+        <div
+          class="glass-effect dock"
+          onclick="openLink('https://www.instagram.com/helpme_coder/')"
+        >
+          <div class="glass-backdrop"></div>
+          <div class="glass-overlay"></div>
+          <div class="glass-highlight"></div>
+          <div class="glass-content">
+            <div class="dock-icons">
+              <img
+                src="https://parsefiles.back4app.com/JPaQcFfEEQ1ePBxbf6wvzkPMEqKYHhPYv8boI1Rc/a13d1acfd046f503f987c1c95af582c8_low_res_Claude.png"
+                alt="Claude"
+                class="dock-icon"
+              />
+              <img
+                src="https://parsefiles.back4app.com/JPaQcFfEEQ1ePBxbf6wvzkPMEqKYHhPYv8boI1Rc/9e80c50a5802d3b0a7ec66f3fe4ce348_low_res_Finder.png"
+                alt="Finder"
+                class="dock-icon"
+              />
+              <img
+                src="https://parsefiles.back4app.com/JPaQcFfEEQ1ePBxbf6wvzkPMEqKYHhPYv8boI1Rc/c2c4a538c2d42a8dc0927d7d6530d125_low_res_ChatGPT___Liquid_Glass__Default_.png"
+                alt="ChatGPT"
+                class="dock-icon"
+              />
+              <img
+                src="https://parsefiles.back4app.com/JPaQcFfEEQ1ePBxbf6wvzkPMEqKYHhPYv8boI1Rc/6d26d432bd65c522b0708185c0768ec3_low_res_Maps.png"
+                alt="Maps"
+                class="dock-icon"
+              />
+              <img
+                src="https://parsefiles.back4app.com/JPaQcFfEEQ1ePBxbf6wvzkPMEqKYHhPYv8boI1Rc/7c59c945731aecf4f91eb8c2c5f867ce_low_res_Safari.png"
+                alt="Safari"
+                class="dock-icon"
+              />
+              <img
+                src="https://parsefiles.back4app.com/JPaQcFfEEQ1ePBxbf6wvzkPMEqKYHhPYv8boI1Rc/b7f24edc7183f63dbe34c1943bef2967_low_res_Steam___Liquid_Glass__Default_.png"
+                alt="Steam"
+                class="dock-icon"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Glass Button -->
+        <div
+          class="glass-effect glass-button"
+          onclick="openLink('https://www.instagram.com/helpme_coder/')"
+        >
+          <div class="glass-backdrop"></div>
+          <div class="glass-overlay"></div>
+          <div class="glass-highlight"></div>
+          <div class="glass-content">
+            <div class="button-content">
+              <div class="button-text">
+                <p>How can I help you today?</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="Script.js"></script>
+  </body>
+</html>
