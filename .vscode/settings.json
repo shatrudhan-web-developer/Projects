@@ -1,5 +1,6 @@
 {
     "typewriterAutoScroll.offset": 50,
     "typewriterAutoScroll.enable": true,
-    "livePreview.defaultPreviewPath": "/YouTube 8/Index.html"
+    "livePreview.defaultPreviewPath": "/YouTube 8/Index.html",
+    "liveServer.settings.port": 5501
 }
